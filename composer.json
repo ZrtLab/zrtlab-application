@@ -1,0 +1,45 @@
+{
+	"name": "zrt-lab/zrt-application",
+	"description": "Zend Framework Application package",
+	"keywords": [
+        "framework",
+        "zrt",
+        "zend",
+        "application"
+    ],
+    "config": {
+        "process-timeout": 5000
+    },
+    "authors": [
+        {
+            "name": "Luis Alberto Mayta",
+            "email": "slovacus@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "homepage": "https://github.com/zrtlab/zrtlab-application",
+    "license": "BSD-3-Clause",
+    "require": {
+        "php": ">=5.3.3",
+        "bombayworks/zendframework1": "1.*"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "dev-master",
+        "phpunit/phpunit": "4.1.0",
+        "phpunit/dbunit": "*",
+        "fabpot/php-cs-fixer": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Zrt_Application": "library/"
+        }
+    },
+    "autoload-dev": {
+        "psr-0": {
+            "Zrt\\Tests": "library/tests/Zrt/"
+        }
+    },
+    "config": {
+        "bin-dir": "vendor/bin/"
+    }
+}
