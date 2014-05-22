@@ -6,7 +6,8 @@ use PHPUnit_Framework_TestCase,
     Zrt_Application_Resource_Solr,
     Zend_Application_Bootstrap_Bootstrap,
     Zend_Controller_Front,
-    Zend_Application;
+    Zend_Application,
+    Zend_Registry;
 
 class SolrTest extends PHPUnit_Framework_TestCase
 {
@@ -42,8 +43,33 @@ class SolrTest extends PHPUnit_Framework_TestCase
         $resource->setBootstrap($this->bootstrap);
         $solr = $resource->init();
         $this->assertNotNull($solr);
-        \Zend_Debug::dump($solr);
+    }
 
+    public function testGetInstanceZendRegistrySolr()
+    {
+        $options = array(
+            'endpoint' => array(
+                'aviso' => array(
+                    'host' => '192.168.105.23',
+                    'port' => 8080,
+                    'path' => '/solr',
+                    'core' => 'aviso',
+                    'timeout' => 5
+                ),
+                'ubigeo' => array(
+                    'host' => '192.168.105.23',
+                    'port' => 8080,
+                    'path' => '/solr',
+                    'core' => 'ubigeo',
+                    'timeout' => 5
+                )
+            )
+        );
+        $resource = new Zrt_Application_Resource_Solr($options);
+        $resource->setBootstrap($this->bootstrap);
+        $solr = $resource->init();
+        $this->assertNotNull($solr);
+        $this->assertNotNull(Zend_Registry::get('solr'));
     }
 
     public function testInitializerInstance()

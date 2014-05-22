@@ -19,6 +19,8 @@ class Zrt_Application_Resource_Solr
             }
         }
 
+        Zend_Registry::set('solr', $this->solr);
+
         return $this->solr;
     }
 
