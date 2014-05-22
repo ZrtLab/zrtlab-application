@@ -27,7 +27,8 @@
         "fzaninotto/faker": "dev-master",
         "phpunit/phpunit": "4.1.0",
         "phpunit/dbunit": "*",
-        "fabpot/php-cs-fixer": "dev-master"
+        "fabpot/php-cs-fixer": "dev-master",
+        "zrt-lab/zrt-service-solr": "dev-develop"
     },
     "autoload": {
         "psr-0": {

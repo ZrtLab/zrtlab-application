@@ -1,6 +1,6 @@
 <?php
 
-class App_Application_Resource_DebugToolbar extends Zend_Application_Resource_ResourceAbstract {
+class Zrt_Application_Resource_DebugToolbar extends Zend_Application_Resource_ResourceAbstract {
 
     public function init() {
         $bootstrap = $this->getBootstrap();
@@ -20,7 +20,7 @@ class App_Application_Resource_DebugToolbar extends Zend_Application_Resource_Re
             );
         }
 
-        $debug = new App_Controller_Plugin_Debug($options);
+        $debug = new Zrt_Controller_Plugin_Debug($options);
 
         // Instantiate the database adapter and setup the plugin.
         // Alternatively just add the plugin like above and rely on the autodiscovery feature.
