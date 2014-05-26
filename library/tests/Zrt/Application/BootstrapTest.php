@@ -15,11 +15,13 @@ class BoostrapTest extends PHPUnit_Framework_TestCase
     {
         $this->application = new Zend_Application('testing',$_SERVER['config_path']);
         $this->bootstrap = new Zrt_Application_Bootstrap_Bootstrap($this->application);
+        $this->bootstrap->_initZrtSolr();
         Zend_Controller_Front::getInstance()->resetInstance();
     }
 
     public function testInstanceRegistrySolr()
     {
+        //$this->bootstrap->_initZrtSolr();
         $this->assertNotNull(Zend_Registry::get('zrt.service.solr'));
     }
 }
