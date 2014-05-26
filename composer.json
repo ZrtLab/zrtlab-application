@@ -27,6 +27,7 @@
         "fzaninotto/faker": "dev-master",
         "phpunit/phpunit": "4.1.0",
         "phpunit/dbunit": "*",
+        "mockery/mockery": "0.9.1",
         "fabpot/php-cs-fixer": "dev-master",
         "zrt-lab/zrt-service-solr": "dev-develop"
     },
