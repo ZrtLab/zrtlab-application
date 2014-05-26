@@ -16,7 +16,7 @@ class Bootstrap
     {
         $loader = static::initAutoloader();
         $loader = Zend_Loader_Autoloader::getInstance();
-        $loader->registerNamespace('Zrt_');
+        $_SERVER['config_path'] = realpath('config/application.ini');
     }
 
     protected static function initAutoloader()
