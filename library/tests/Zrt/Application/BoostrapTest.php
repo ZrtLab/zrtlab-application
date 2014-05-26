@@ -2,10 +2,11 @@
 
 namespace Zrt\Tests\Application;
 
-use Zrt_Application_Boostrap,
+use Zrt_Application_Boostrap_Boostrap,
     PHPUnit_Framework_TestCase,
     Zend_Controller_Front,
-    Zend_Registry;
+    Zend_Registry,
+    Zend_Application;
 
 class BoostrapTest extends PHPUnit_Framework_TestCase
 {
