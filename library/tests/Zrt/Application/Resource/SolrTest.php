@@ -1,6 +1,6 @@
 <?php
 
-namespace Zrt\Tests;
+namespace Zrt\Tests\Application\Resource;
 
 use PHPUnit_Framework_TestCase,
     Zrt_Application_Resource_Solr,
