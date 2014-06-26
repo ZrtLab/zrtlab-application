@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
             guest_config.vm.network :forwarded_port, guest: 80, host: 8888, auto_correct: true
             guest_config.vm.network :forwarded_port, guest: 3306, host: 8889, auto_correct: true
             guest_config.vm.network :forwarded_port, guest: 5432, host: 5433, auto_correct: true
-            guest_config.vm.hostname = "local.test-zend.ec"
+            guest_config.vm.hostname = "local.zrtlab-aplication.ec"
             guest_config.vm.synced_folder "./", "/var/www", {:mount_options => ['dmode=777','fmode=777']}
 
             guest_config.vm.provider :virtualbox do |v|
@@ -35,10 +35,8 @@ Vagrant.configure("2") do |config|
             guest_config.vm.define 'guest-box' do |node|
                 node.vm.hostname = 'local.test-zend.ec'
                 node.vm.network :private_network, ip: '192.168.131.2'
-                node.hostmanager.aliases = %w(guest-box.localdomain local.test-zend.ec)
+                node.hostmanager.aliases = %w(guest-box.localdomain local.zrtlab-aplication.ec)
             end
-            #guest_config.vm.provision :shell, :inline => "echo \"America/Bogota\" | sudo tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata"
-            #guest_config.vm.provision :shell, :path => "provision/shell/main.sh"
 
             guest_config.vm.provision :puppet do |puppet|
                 puppet.manifests_path = "provision/puppet/manifests"
@@ -46,7 +44,9 @@ Vagrant.configure("2") do |config|
                 puppet.module_path = ["provision/puppet/modules","provision/puppet/modules_contrib"]
                 puppet.options = "--verbose --debug"
             end
-            guest_config.vm.provision :hostmanager
-            guest_config.vm.provision :shell, :path => "provision/puppet/scripts/enable_remote_mysql_access.sh"
+
+            guest_config.vm.provision :shell, :path => "provision/puppet/shell/enable_remote_mysql_access.sh"
+
+            guest_config.vm.provision :shell, :path => "provision/puppet/shell/composer.sh"
     end
 end
