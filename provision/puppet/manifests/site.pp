@@ -10,12 +10,17 @@ Exec {
             ]
 }
 
-exec { "apt-update":
-    command => "apt-get update",
-            before  => Stage["main"],
+class { 'apt': always_apt_update => true }
+
+class system::update {
+  $packages = [ "build-essential" ]
+  package { $packages:
+    ensure  => present,
+    require => Class["apt::update"],
+  }
 }
 
-include mysql
+include system::update
 include git
 include wget
 include curl
@@ -23,6 +28,7 @@ include sqlite
 include php
 include apache
 include vim
+include mysql
 
 wget::fetch { "get composer":
     source      => 'https://getcomposer.org/composer.phar',

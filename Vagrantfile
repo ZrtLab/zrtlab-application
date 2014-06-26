@@ -45,8 +45,8 @@ Vagrant.configure("2") do |config|
                 puppet.options = "--verbose --debug"
             end
 
-            guest_config.vm.provision :shell, :path => "provision/puppet/shell/enable_remote_mysql_access.sh"
+            guest_config.vm.provision :shell, :path => "provision/shell/enable_remote_mysql_access.sh"
 
-            guest_config.vm.provision :shell, :path => "provision/puppet/shell/composer.sh"
+            guest_config.vm.provision :shell, :path => "provision/shell/composer.sh"
     end
 end
