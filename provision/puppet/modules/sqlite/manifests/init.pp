@@ -1,5 +1,5 @@
-class vim {
-    package { 'vim':
+class sqlite {
+    package { 'sqlite':
         ensure => installed,
     }
 }
