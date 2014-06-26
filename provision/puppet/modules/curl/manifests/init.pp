@@ -1,5 +1,5 @@
-class vim {
-    package { 'vim':
+class curl {
+    package { 'curl':
         ensure => installed,
     }
 }

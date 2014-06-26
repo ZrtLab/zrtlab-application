@@ -1,4 +1,9 @@
 vendor
+.tmp/
+.librarian
+.vagrant
+vendor
+*.lock
 build
 composer.phar
 .vagrant/
