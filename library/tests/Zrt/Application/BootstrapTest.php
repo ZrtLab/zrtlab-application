@@ -6,14 +6,18 @@ use Zrt_Application_Bootstrap_Bootstrap,
     PHPUnit_Framework_TestCase,
     Zend_Controller_Front,
     Zend_Registry,
-    Zend_Application;
+    Zrt_Application;
 
 class BoostrapTest extends PHPUnit_Framework_TestCase
 {
 
     public function setUp()
     {
-        $this->application = new Zend_Application('testing',$_SERVER['config_path']);
+        $filesConfig = array(
+           $_SERVER["config_path"] . "/application.ini"
+        );
+
+        $this->application = new Zrt_Application(ENVIRONMENT,$filesConfig);
         $this->bootstrap = new Zrt_Application_Bootstrap_Bootstrap($this->application);
         $this->bootstrap->_initZrtSolr();
         Zend_Controller_Front::getInstance()->resetInstance();

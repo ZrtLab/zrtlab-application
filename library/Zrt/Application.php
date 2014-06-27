@@ -21,27 +21,30 @@ class Zrt_Application extends Zend_Application
     public function __construct($environment, $inis = array(),
         Zend_Cache_Core $configCache = null)
     {
+        if(empty($inis)){
+            throw new Exception("No se encuentra ningun archivo de configuracion");
+        }
 
         $this->_autoloader = Zend_Loader_Autoloader::getInstance();
+
         $this->_configCache = $configCache;
-        $path = APPLICATION_PATH . '/configs/';
 
-        if (in_array('application.ini', $inis)) {
-            $applicationIni = new Zend_Config_Ini(
-                $path . "application.ini", $environment
-            );
-            unset($inis['0']);
-        }
+        $applicationIni = new Zend_Config_Ini(
+            $inis["0"], $environment
+        );
+
+        unset($inis['0']);
+
         $options = $applicationIni->toArray();
-        foreach ($inis as $value) {
-            $iniFile = $path . $value;
 
-            if (is_readable($iniFile)) {
-                $config = $this->_loadConfig($iniFile);
-                $options = $this->mergeOptions(
-                    $options, $config
-                );
+        foreach ($inis as $ini) {
+            if (!is_readable($ini)) {
+                throw new Exception("Error El archivo {$ini} no es leible");
             }
+            $config = $this->_loadConfig($ini);
+            $options = $this->mergeOptions(
+                $options, $config
+            );
         }
         $this->setOptions($options);
     }
@@ -91,4 +94,3 @@ class Zrt_Application extends Zend_Application
     }
 
 }
-
