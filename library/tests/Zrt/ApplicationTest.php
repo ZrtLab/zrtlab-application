@@ -11,13 +11,13 @@ class ApplicationTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->inis[] = ROOT_PATH . "config/application.ini";
+        $this->inis[] = $_SERVER['config_path'] . "/application.ini";
     }
 
     public function testInitializerInstance()
     {
         $instance = new Zrt_Application(ENVIRONMENT,$this->inis);
-        $this->assetNotNull($instance);
+        $this->assertNotNull($instance);
     }
 
 }
