@@ -17,7 +17,7 @@ class Bootstrap
         $loader = static::initAutoloader();
         $loader = Zend_Loader_Autoloader::getInstance();
 
-        $_SERVER['config_path'] = realpath('./');
+        $_SERVER['config_path'] = realpath('./config/');
         $_SERVER['root_path'] = realpath('./');
     }
 
