@@ -1,12 +1,12 @@
 <?xml version="1.0" ?>
-<phpunit bootstrap="Bootstrap.php" colors="true">
+<phpunit bootstrap="library/tests/Bootstrap.php" colors="true">
     <testsuites>
         <testsuite name="Zrt">
-            <directory>./</directory>
+            <directory>library/tests/</directory>
         </testsuite>
     </testsuites>
     <php>
-        <const name="ZEND_LIBRARY" value="" />
+        <const name="ENVIRONMENT" value="testing" />
         <var name="DOCTRINE_DSN" value="" />
     </php>
     <!--<logging>-->
