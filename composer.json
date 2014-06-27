@@ -24,7 +24,7 @@
         "bombayworks/zendframework1": "1.*"
     },
     "require-dev": {
-		"chriskite/phactory": "dev-master",
+        "chriskite/phactory": "dev-master",
         "fzaninotto/faker": "dev-master",
         "phpspec/phpspec": "2.0.0",
         "rbone/phactory": "1.1.4",
@@ -32,7 +32,7 @@
         "phpspec/prophecy": "~1.0",
         "mockery/mockery": "0.9.1",
         "fabpot/php-cs-fixer": "dev-master",
-        "luismayta/zfdebug": "dev-develop"
+        "luismayta/zfdebug": "dev-develop",
         "zrt-lab/zrt-service-solr": "dev-develop"
     },
     "autoload": {
