@@ -1,16 +1,16 @@
 class freetds {
     package { 'freetds-common':
         ensure => installed,
-        require => Exec['apt-get update']
+        required => Exec["manager update"]
     }
     
     package { 'freetds-bin':
         ensure => installed,
-        require => Exec['apt-get update']
+        required => Exec["manager update"]
     }
     
     package { 'unixodbc':
         ensure => installed,
-        require => Exec['apt-get update']
+        required => Exec["manager update"]
     }
 }

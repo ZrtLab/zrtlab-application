@@ -4,7 +4,7 @@ class apache
     { 
         "apache2":
             ensure  => present,
-            require => [Package['php5'], Package['php5-dev'], Package['php5-cli']]
+            require => [Exec["manager update"],Package['php5'], Package['php5-dev'], Package['php5-cli']]
     }
     
 

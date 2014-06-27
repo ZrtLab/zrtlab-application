@@ -10,17 +10,12 @@ Exec {
             ]
 }
 
-class { 'apt': always_apt_update => true }
-
-class system::update {
-  $packages = [ "build-essential" ]
-  package { $packages:
-    ensure  => present,
-    require => Class["apt::update"],
-  }
+exec 
+{ 
+    "manager update":
+        command => "/usr/bin/apt-get update",
 }
 
-include system::update
 include git
 include wget
 include curl
