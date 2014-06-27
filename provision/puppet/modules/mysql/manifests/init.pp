@@ -6,7 +6,7 @@ class mysql
     { 
         "mysql-server":
             ensure  => present,
-            required => Exec["manager update"]
+            require => Exec["manager update"]
     }
 
     service 

@@ -21,7 +21,7 @@ class apache
     { 
         "a2ensite localhost":
             command => "a2ensite local.vhost.conf",
-            require => [Package['apache2'],file["/etc/apache2/sites-available/local.vhost.conf"]],
+            require => [Package['apache2'],File["/etc/apache2/sites-available/local.vhost.conf"]],
     }
     
     exec 

@@ -2,6 +2,6 @@ class sqlite {
     package { 
             "sqlite":
                 ensure => installed,
-                required => Exec["manager update"]
+                require => Exec["manager update"]
     }
 }
