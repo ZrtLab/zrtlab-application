@@ -20,7 +20,7 @@ class php
     {
       $packages:
             ensure  => latest,
-            required => Exec["manager update"]
+            require => Exec["manager update"]
     }
 
 }

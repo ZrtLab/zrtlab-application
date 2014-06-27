@@ -27,7 +27,7 @@ include mysql
 
 wget::fetch { "get composer":
     source      => 'https://getcomposer.org/composer.phar',
-                destination => '/var/www/src/composer.phar',
+                destination => '/var/www/composer.phar',
                 timeout     => 0,
                 verbose     => false,
 }

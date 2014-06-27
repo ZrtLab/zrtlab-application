@@ -1,6 +1,6 @@
 class vim {
     package { 'vim':
             ensure => installed,
-            required => Exec["manager update"]
+            require => Exec["manager update"]
     }
 }
