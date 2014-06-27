@@ -3,8 +3,8 @@
 namespace Zrt\Tests\Application\Resource;
 
 use PHPUnit_Framework_TestCase,
-    Zend_Application,
-    Zend_Application_Bootstrap_Bootstrap,
+    Zrt_Application,
+    Zrt_Application_Bootstrap_Bootstrap,
     Zend_Controller_Front;
 
 class NotifierTest extends PHPUnit_Framework_TestCase
@@ -12,8 +12,12 @@ class NotifierTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->application = new Zend_Application('testing',$_SERVER['config_path']);
-        $this->bootstrap = new Zend_Application_Bootstrap_Bootstrap($this->application);
+        $filesConfig = array(
+           $_SERVER["config_path"] . "/application.ini"
+        );
+
+        $this->application = new Zrt_Application(ENVIRONMENT,$filesConfig);
+        $this->bootstrap = new Zrt_Application_Bootstrap_Bootstrap($this->application);
         Zend_Controller_Front::getInstance()->resetInstance();
     }
 
